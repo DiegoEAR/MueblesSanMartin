@@ -1,6 +1,5 @@
 import { CarouselContainerStyled, TitleContainerStyled, ImgCarrouselStyled, TextContainerStyled, ButtonStyled, PriceContainerStyled} from './DestacadosStyles'
 import { motion } from 'framer-motion'
-import { BsFillArrowRightCircleFill } from "react-icons/bs"
 
 function Item({item}){
 
