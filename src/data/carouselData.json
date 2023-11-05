@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "image": "/public/modular-gran-acacia.jpg",
+    "title": "Modular Gran Acacia",
+    "medidaL": "1.77mm de Alto",
+    "medidaA": "1.84m de Ancho",
+    "medidaP": "0.36m de Profundidad",
+    "price": "$89000" 
+  },
+  {
+    "id": 2,
+    "image": "/public/cocina-compacta-tabaco.jpg",
+    "title": "Cocina Compacta",
+    "medidaL": "1.86m de Alto",
+    "medidaA": "1.05m de Ancho",
+    "medidaP": "0.47m de Profundidad", 
+    "price": "$73000" 
+  },
+  {
+    "id": 3,
+    "image": "/public/954-tabaco2.jpg",
+    "title": "Cama Triple",
+    "medidaL": "2.33m de Largo",
+    "medidaA": "0.90m de Ancho",
+    "medidaP": "0.47m de Profundidad", 
+    "price": "$32000" 
+  },
+  {
+    "id": 4,
+    "image": "/public/placard-01.jpg",
+    "title": "Placard Canada",
+    "medidaL": "2.20m de Alto",
+    "medidaA": "1.92m de Anch⁠o",
+    "medidaP": "0.50m de Profundidad", 
+    "price": "$120000" 
+  }
+]
