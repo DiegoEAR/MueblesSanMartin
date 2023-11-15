@@ -16,25 +16,25 @@ const Navbar = () => {
       <ListContainerStyled>
         <NavbarButtonStyled>
           <motion.div whileTap={{scale: 0.9}}>
-            <a href="/#">Inicio</a>
+            <a href="/">Inicio</a>
           </motion.div>
         </NavbarButtonStyled>
 
         <NavbarButtonStyled>
           <motion.div whileTap={{scale: 0.9}}>
-            <a href="/#">Tienda</a>
+            <a href="/tienda">Tienda</a>
           </motion.div>
         </NavbarButtonStyled>
 
         <NavbarButtonStyled>
           <motion.div whileTap={{scale: 0.9}}>
-            <a href="/#">Nosotros</a>
+            <a href="/nosotros">Nosotros</a>
           </motion.div>
         </NavbarButtonStyled>
 
         <NavbarButtonStyled>
           <motion.div whileTap={{scale: 0.9}}>
-            <a href="/#">Contacto</a>
+            <a href="/contacto">Contacto</a>
           </motion.div>
         </NavbarButtonStyled>
 
