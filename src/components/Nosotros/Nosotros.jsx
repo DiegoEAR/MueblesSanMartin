@@ -1,8 +1,18 @@
-import React from 'react'
+import React from 'react';
+import { BgImgStyled, NosotrosContainerStyled, TextContainerStyled } from './NosotrosStyles';
 
 const Nosotros = () => {
   return (
-    <div>Nosotros</div>
+    <>
+      <NosotrosContainerStyled>
+        <BgImgStyled  />
+        <TextContainerStyled>
+          <h2>NOSOTROS</h2>
+        </TextContainerStyled>
+      </NosotrosContainerStyled>
+
+      
+    </>
   )
 }
 

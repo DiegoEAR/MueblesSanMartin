@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 export const FooterContainerStyled = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
     width: 100%;
     height: 110px;
     margin-top: 50px;
