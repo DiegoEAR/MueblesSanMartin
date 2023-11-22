@@ -40,7 +40,7 @@ const Navbar = () => {
 
         <IconButtonStyled>
           <motion.div whileTap={{scale: 0.8}}>
-            <ImMenu size={"20px"}/>
+            <ImMenu size={"25px"}/>
           </motion.div>
         </IconButtonStyled>
 
