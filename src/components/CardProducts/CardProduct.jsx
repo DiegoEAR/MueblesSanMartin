@@ -8,7 +8,7 @@ const CardProduct = () => {
     <>
       <ProductCardContainer>
 
-        <ProductImg src='../../../public/2,12 tabaco.jpg'/>
+        <ProductImg src='/2,12 tabaco.jpg'/>
         <ProductTitle>PLACARD BAHIA LINEA NORDICA 2 CUERPOS 2,10</ProductTitle>
 
         <PriceContainer>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { ListContainerStyled, NavbarButtonStyled, NavbarContainerStyled, IconButtonStyled } from './NavbarStyles'
 import { motion } from 'framer-motion'
-import { BsCartFill } from 'react-icons/bs'
+import { BiSolidCart } from "react-icons/bi";
 import { ImMenu } from 'react-icons/im'
 
 const Navbar = () => {
@@ -45,7 +45,7 @@ const Navbar = () => {
         </IconButtonStyled>
 
           <motion.div whileTap={{scale: 0.8}}>
-            <BsCartFill  size={"20px"}/>
+            <BiSolidCart  size={"30px"}/>
           </motion.div>
 
       </ListContainerStyled>

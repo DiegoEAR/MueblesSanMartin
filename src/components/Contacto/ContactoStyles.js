@@ -13,6 +13,17 @@ export const FormStyled = styled.form`
   border: 1px solid var(--secondary);
   border-radius: 1rem;
   gap: 10px;
+
+  @media (max-width: 903px) {
+    width: 80%;
+    padding: 0;
+  }
+
+  h2{
+    @media (max-width: 903px) {
+    font-size: 30px;
+  }
+  }
 `
 
 export const FormInputContainer = styled.div`
