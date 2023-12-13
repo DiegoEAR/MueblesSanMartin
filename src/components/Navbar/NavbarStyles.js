@@ -9,7 +9,7 @@ export const NavbarContainerStyled = styled.div`
   align-items: center;
   padding: 1rem;
   position: fixed;
-  z-index: 3;
+  z-index: 999;
 `
 
 export const ImgLogoNav = styled.img`
@@ -18,9 +18,7 @@ export const ImgLogoNav = styled.img`
 
 export const NavbarStyled = styled.div`
   display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  gap: 1rem;
+  justify-content: center;
 
   @media (max-width: 600px) {
     justify-content: flex-end;
@@ -31,16 +29,17 @@ export const ListContainerStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.8s ease;
 
   a{
     padding: 1rem;
   }
 
   @media (max-width: 600px) {
-    display: ${props => (props.$isOpen ? 'flex' : 'none')};
+    transform: ${(props) => (props.$isOpen ? "translateX(0)" : "translateX(100%)")};
     flex-direction: column;
     width: 100%;
-    height: 30vh;
+    height: 40vh;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -54,6 +53,8 @@ export const ListContainerStyled = styled.div`
 export const NavbarButtonStyled = styled.div`   
   font-size: 1rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
 
   a{
     color: var(--text);

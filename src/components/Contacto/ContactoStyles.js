@@ -16,12 +16,14 @@ export const FormStyled = styled.form`
 
   @media (max-width: 903px) {
     width: 80%;
-    padding: 0;
+    padding: 1rem;
   }
 
   h2{
     @media (max-width: 903px) {
-    font-size: 30px;
+    font-size: 26px;
+    text-align: center;
+    
   }
   }
 `
@@ -36,6 +38,9 @@ export const FormInputContainer = styled.div`
 
   label{
     width: 100%;
+    @media (max-width: 903px){
+      font-size: 22px;
+    }
   }
 
   input{

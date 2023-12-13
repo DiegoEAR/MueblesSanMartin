@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const CarouselContainerStyled = styled.div`
   display: flex;
+  max-width: 1400px;
+  width: 100%;
   justify-content: space-around;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 3rem;
   padding: 0;
-  padding-bottom: 1rem;
   border-radius: 1rem;
   background: cover;
   background-color: var(--sdt);
@@ -19,16 +20,27 @@ export const CarouselContainerStyled = styled.div`
 `
 export const ImgCarrouselStyled = styled.img`
   height: 30vw;
-  border-radius: 2rem;
+  border-radius: 0 1rem 1rem 0;
   padding: 1rem;
+  background-color: white;
+  max-width: 700px;
+  max-height: 700px;
   
 
   @media (max-width: 1250px) {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 70%;
+    height: 60vh;
+    width: 100% auto;
+    border-radius: 1rem;
+  }
+
+  @media (max-width: 720px) {
     width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
   }
 `
 
@@ -37,9 +49,9 @@ export const TextContainerStyled = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  margin-left: 3rem;
   width: 100%;
   height: 100%;
-  margin-left: 30px;
   border-radius: 2rem;
   padding: 1rem;
 
@@ -48,7 +60,11 @@ export const TextContainerStyled = styled.div`
     font-weight: 900;
   }
 
-
+  @media (max-width: 1250px){
+    justify-content: center;
+    align-items: center;
+    margin-left: 0; 
+  }
 `
 
 export const PriceContainerStyled = styled.div`
@@ -60,8 +76,10 @@ export const PriceContainerStyled = styled.div`
   @media (max-width: 1250px) {
     position: absolute;
     align-items: center;
-    margin-top: 80%;
-    padding: 1rem;
+    width: 60%;
+    gap: 2rem;
+    bottom: 3rem;
+    padding: 5px;
     border-radius: 1rem;
     background-color: var(--textV);
     color: var(--background);
@@ -72,12 +90,19 @@ export const PriceContainerStyled = styled.div`
   }
 
     @media (max-width:720px) {
-      max-width: 40%;
+      max-width: 100%;
       max-height: 40%;
-      background: none;
+      gap: 0;
+      
+      background: var(--sdt);
+      border-radius: 1rem;
+      margin-top: 80%;
 
       span {
       font-size: 20px;
+      color: var(--text);
+      font-weight: 600;
+      text-shadow: 2px 2px 3px white;
     }
     }
 `
@@ -88,8 +113,6 @@ export const TitleContainerStyled = styled.div`
   flex-direction: column;
   margin-right: 30px;
   justify-content: flex-start;
-
-
 
   h2 {
     font-size: 46px;
@@ -104,7 +127,6 @@ export const TitleContainerStyled = styled.div`
     display: none;
   }
 `
-
 
 export const ButtonStyled = styled.button`
   width: 150px;

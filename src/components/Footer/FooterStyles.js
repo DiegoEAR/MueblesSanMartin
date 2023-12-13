@@ -11,6 +11,11 @@ export const FooterContainerStyled = styled.div`
     margin-top: 50px;
     background-color: var(--primary);
     padding-top: 1rem;
+    position: relative;
+
+		@media (max-width: 720px) {
+			height: 25vh;
+    }
 `
 export const FooterSignContainer = styled.div`
     display: flex;
@@ -34,6 +39,14 @@ export const FooterLinksStyled = styled.div`
     align-items: center;
     justify-content: space-around;
     gap: 20px;
+
+    @media (max-width: 720px) {
+        flex-direction: column;
+		gap: 1px;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+    }
 
 
     a {

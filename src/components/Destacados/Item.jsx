@@ -11,15 +11,7 @@ function Item({item}){
           <h2>{item.title}</h2>
 
           <div>
-            <p>•{item.medidaL}</p>
-          </div>
-
-          <div>
-            <p>•{item.medidaA}</p>
-          </div>
-
-          <div>
-            <p>•{item.medidaP}</p>
+            <p>•Categoria: {item.category}</p>
           </div>
 
         </TitleContainerStyled>

@@ -3,11 +3,16 @@ import styled from "styled-components";
 export const TitleTiendaStyled = styled.h2`
 	font-size: 38px;
 	color: var(--text);
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `
 
 export const TiendaContainerStyled = styled.div`
 	display: flex;
-	width: 100vw;
+	max-width: 1600px;
+	width: 100%;
 	height: auto;
 	margin-top: 10px;
 `
@@ -20,22 +25,35 @@ export const LeftContainerStyled = styled.div`
 	border-right: 1px solid var(--secondary);
 	align-items: center;
 	padding-top: 30px;
+	height: 100%;
+
+	user-select: none;
+
+	h3{
+		font-size: 24px;
+		font-weight: 600;
+	}
 
 	@media (max-width: 650px) {
     display: none;
-  }
+	}
 `
 
 export const ListCategoriesStyled = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	align-items: flex-start;
+	padding-left: 10px;	
 	margin-top: 10px;
+	width: 90%;
+	background-color: ${({ selected }) =>
+    selected ? 'var(--sdt)' : 'var(--background)'};
 `
 
 export const CategoryStyled = styled.a`
-	font-size: 18px;
+	font-size: 16px;
 	color: var(--text);
+	cursor: pointer;
 `
 
 export const RightContainerSyled = styled.div`
@@ -44,8 +62,8 @@ export const RightContainerSyled = styled.div`
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	height: auto;
-	right: 0;
+	height: 100%;
+	right: 0;  
 `
 
 export const ProductsContainerStyled = styled.div`
@@ -65,7 +83,7 @@ export const ProductsContainerStyled = styled.div`
     >*{
 			flex: 1 1 50%;
 		}
-  }
+	}
 `
 
 export const TitleContainerStyled = styled.div`
@@ -82,3 +100,19 @@ export const IconFilterContainer = styled.div`
 		display: none;
 	}
 `
+
+export const ButtonContainerStyled = styled.div`
+	display: flex;
+	justify-content: center;
+	bottom: 0;
+	gap: 30px;
+	margin-top: 50px;
+`
+
+export const ButtonSX = {
+  backgroundColor: 'var(--sdt)',
+
+  "&:hover": {
+    backgroundColor: "var(--primary)",
+  }
+}

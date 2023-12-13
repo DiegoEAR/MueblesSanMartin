@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const NosotrosContainerStyled = styled.div `
   position: relative;
-  height: 100vw;
+  max-width: 1600px;
   height: 60vh;
   display: flex;
   align-items: center;
@@ -17,6 +17,8 @@ export const BgImgStyled = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 1600px;
+  max-height: 585px;
   background-image: url("/nosotros1.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -25,7 +27,7 @@ export const BgImgStyled = styled.div`
   z-index: -1;
 `
 
-export const TextContainerStyled = styled.div`
+export const TitleContainerStyled = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,9 +39,47 @@ export const TextContainerStyled = styled.div`
   padding: 2rem;
   box-sizing: border-box;
   height: 100px;
-  /* margin-right: 400px; */
+
+  @media (max-width: 520px) {
+    font-size: 32px
+  }
 `
 
 export const InfoNosotrosContainerStyled = styled.div`
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 ` 
+
+export const TextoPrincipalStyled = styled.h2`
+  font-size: 32px;
+  text-align: center;
+  max-width: 1600px;
+  width: 90%;
+  margin-top: 3rem;
+
+  @media (max-width: 900px) {
+    font-size: 26px;
+  }
+`
+
+export const TextoNosotrosStyled = styled.p`
+  font-size: 26px;
+  max-width: 1600px;
+  width: 60%;
+
+  @media (max-width: 900px) {
+    font-size: 22px;
+    text-align: center;
+  }
+`
+
+export const ImgFrente = styled.img`
+  width: 60%;
+
+  @media (max-width: 900px) {
+    width: 100%;
+    margin-top: 2rem;
+  }
+`

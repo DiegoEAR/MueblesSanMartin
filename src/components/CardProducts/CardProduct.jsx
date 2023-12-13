@@ -2,19 +2,30 @@ import React from 'react'
 import { PriceContainer, ProductCardContainer, ProductImg, ProductPrice, ProductTitle } from './CardProductStyles'
 import { BiSolidCartAdd } from "react-icons/bi";
 import { motion } from 'framer-motion'
+import { addToCart } from '../../redux/cart/cartSlice';
+import { useDispatch } from 'react-redux';
 
-const CardProduct = () => {
+
+const CardProduct = ({ image, title, price, id}) => {
+
+  const dispatch = useDispatch();
+
   return (
     <>
       <ProductCardContainer>
 
-        <ProductImg src='/2,12 tabaco.jpg'/>
-        <ProductTitle>PLACARD BAHIA LINEA NORDICA 2 CUERPOS 2,10</ProductTitle>
+        <ProductImg src={image} alt={title}/>
+        <ProductTitle>{title}</ProductTitle>
 
         <PriceContainer>
 
-          <ProductPrice>$219000</ProductPrice>
-          <motion.div whileTap={{scale: 0.8}}>
+          <ProductPrice>${price}</ProductPrice>
+          <motion.div 
+            whileTap={{scale: 0.8}}
+            onClick={() =>
+              dispatch(addToCart({ id, image, title, price }))
+            }
+          >
             <BiSolidCartAdd size={"35px"} />
           </motion.div>
 

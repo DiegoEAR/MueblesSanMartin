@@ -1,25 +1,39 @@
 import React from 'react'
-import { BsWhatsapp, BsFillTelephoneFill } from 'react-icons/bs'
-import { HeroContainerStyled, TextHeroContainer, ImgStyled1, ImgStyled2 } from './HeroStyles'
+import {  BsFillTelephoneFill, BsFacebook, BsInstagram, BsWhatsapp} from 'react-icons/bs';
+import { ButtonsStyledContainer, ContactStyledContainer, HeroContainerStyled, HeroImgStyled, TextHeroContainer, TextStyled,} from './HeroStyles';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
     <>
       <HeroContainerStyled>
-        <ImgStyled1 src="/17-132-VENECIA.png"/>
+        <HeroImgStyled src='/Header.jpg'/>
+
         <TextHeroContainer>
-          <img src="/Logo.png" alt="" />
-          <h1>25 DE MAYO 1936 | SAN MARTIN</h1>
-          <div>
-            <BsFillTelephoneFill size={'50px'}/>
-            <p>4752-7747 / 4752-7809</p>
-          </div>
-          <div>
-            <BsWhatsapp size={"50px"}/>
-            <span>+5491132318324</span>
-          </div>
+          <h1>MUEBLES SAN MARTIN</h1>
+
+          <TextStyled>Compra Fácil, Rápido y Segura!</TextStyled>
+
+          <ContactStyledContainer>
+            <BsFillTelephoneFill size={'30px'}/>
+            <p>4752-7747 / 4752-7809</p> 
+          </ContactStyledContainer>
+
+          <ButtonsStyledContainer>
+
+            <motion.div whileTap={{scale: 0.8}}>
+              <BsFacebook size={'60px'} className='IconContact'/>
+            </motion.div>
+            <motion.div whileTap={{scale: 0.8}}>
+              <BsInstagram size={'60px'}/>
+            </motion.div>
+            <motion.div whileTap={{scale: 0.8}}>
+              <BsWhatsapp size={'60px'}/>
+            </motion.div>
+
+          </ButtonsStyledContainer>
+
         </TextHeroContainer>
-        <ImgStyled2 src="/134-INTERIOR.png"/>
       </HeroContainerStyled>
     </>
   )

@@ -3,9 +3,14 @@ import styled from "styled-components";
 export const ProductCardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
   background-color: var(--background);
-  width: 20vw; 
+  max-width: 399px;
+  max-height: 535px;
+  width: 100%;
+  height: 100%;
   padding: 1rem;
   cursor: pointer;
 
@@ -15,12 +20,15 @@ export const ProductCardContainer = styled.div`
 `
 
 export const ProductImg = styled.img`
-  width: 100%;
+  max-width: 367px;
+  max-height: 367px;
+  width: auto;
   height: auto;
+  background-color: white;
 `
 
 export const ProductTitle = styled.h3`
-  font-size: 20px;
+  font-size: 28px;
   width: 95%;
   color: var(--text);
 `

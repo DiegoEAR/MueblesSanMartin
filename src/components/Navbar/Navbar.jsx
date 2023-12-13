@@ -1,14 +1,26 @@
 import React, { useContext } from 'react'
-import { ListContainerStyled, NavbarButtonStyled, NavbarContainerStyled, IconButtonStyled, NavbarStyled, ButtonsContainer, ImgLogoNav } from './NavbarStyles';
+import { ListContainerStyled, NavbarButtonStyled, NavbarContainerStyled, IconButtonStyled, NavbarStyled, ButtonsContainer, ImgLogoNav} from './NavbarStyles';
 import { motion } from 'framer-motion';
 import { BiSolidCart } from "react-icons/bi";
 import { ImMenu } from 'react-icons/im';
 import { MenuContext } from '../Context/MenuContext';
+import { useDispatch } from 'react-redux';
+import { toggleHiddenCart } from '../../redux/cart/cartSlice';
+import Cart from '../cart/Cart';
+
 
 const Navbar = () => {
 
-  const {isOpen, setIsOpen} = useContext(MenuContext);
+  const dispatch = useDispatch();
 
+  //CartToggle
+  const handleToggleCart = () => {
+    dispatch(toggleHiddenCart());
+  };
+
+
+  //MenuToggle
+  const {isOpen, setIsOpen} = useContext(MenuContext);
   const MenuToggle = () => { setIsOpen(!isOpen) };
 
   return (
@@ -16,7 +28,7 @@ const Navbar = () => {
     <NavbarContainerStyled>
 
 
-        <ImgLogoNav href="/#" src="/Logo.png" alt="" />
+        <ImgLogoNav href="/#" src="/Logo.png" alt="Logo" />
 
 
       <NavbarStyled>
@@ -57,14 +69,17 @@ const Navbar = () => {
             </motion.div>
           </IconButtonStyled>
 
-            <motion.div whileTap={{scale: 0.8}}>
-              <BiSolidCart  size={"30px"}/>
+            <motion.div whileTap={{scale: 0.8}} style={{marginRight: '1rem'}} onClick={handleToggleCart}>
+              <BiSolidCart size={"30px"}/>
             </motion.div>
 
         </ButtonsContainer>
 
-      </NavbarStyled>
 
+          <Cart/>
+
+
+      </NavbarStyled>
     </NavbarContainerStyled>
     </>
   )

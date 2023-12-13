@@ -6,6 +6,7 @@ import Destacados from '../components/Destacados/Destacados'
 import Tienda from '../components/Tienda/Tienda'
 import Nosotros from '../components/Nosotros/Nosotros'
 import Contacto from '../components/Contacto/Contacto'
+import IntroNosotros from '../components/IntroNosotros/IntroNosotros';
 
 const Routes = () => {
   return (
@@ -16,6 +17,7 @@ const Routes = () => {
           <Route path='/' element={
           <> 
           <Hero /> 
+          <IntroNosotros />
           <Destacados /> 
           </>} />
 
