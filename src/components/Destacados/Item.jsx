@@ -16,7 +16,7 @@ function Item({item}){
 
         </TitleContainerStyled>
         <PriceContainerStyled>
-          <span>Precio: {item.price}</span>
+          <span>Precio: $ {item.price}</span>
           <motion.div whileTap={{scale: 0.95}}>
             <ButtonStyled>MAS INFO!</ButtonStyled>
           </motion.div>
