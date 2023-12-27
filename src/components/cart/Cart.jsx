@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import {FaCashRegister, FaTrashAlt } from "react-icons/fa";
 import CartItem from './cartItem/CartItem';
 import { clearCart } from '../../redux/cart/cartSlice';
+import Swal from 'sweetalert2';
 
 
 
@@ -19,6 +20,40 @@ const Cart = () => {
   const totalPrice = cartItems.reduce((acc, item) => {
     return (acc += item.price * item.quantity);
   }, 0);
+
+  const handleCheckout = () => {
+    Swal.fire({
+      title: '¿Desea finalizar su compra?',
+      text: `El precio a abonar es $${totalPrice}`,
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3131ce',
+      cancelButtonColor: 'var(--secondary)',
+      confirmButtonText: 'Finalizar Compra'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(clearCart());
+        Swal.fire('¡Gracias por tu compra!', 'Nos contactaremos a la brevedad.', 'success');
+      }
+    });
+  };
+
+  const handleClearCart = () => {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta acción vaciará tu carrito de compras.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3131ce',
+      cancelButtonColor: 'var(--secondary)',
+      confirmButtonText: 'Sí, estoy seguro'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(clearCart());
+        Swal.fire('¡Carrito eliminado con éxito!', 'Tu carrito ha sido vaciado.', 'success');
+      }
+    });
+  };
 
   return (
   <>
@@ -53,7 +88,7 @@ const Cart = () => {
 
           <motion.div 
           whileTap={{scale: 0.9}}
-          onClick={() => dispatch(clearCart())}
+          onClick={handleClearCart}
           >
             <ButtonStyled >
               <FaTrashAlt size={'40px'}/>
@@ -62,7 +97,7 @@ const Cart = () => {
 
           <motion.div 
           whileTap={{scale: 0.9}}
-          onClick={() => dispatch(clearCart())}
+          onClick={handleCheckout}
           >
             <ButtonStyled>
               <FaCashRegister  size={'45px'}/>

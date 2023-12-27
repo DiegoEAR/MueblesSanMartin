@@ -3,13 +3,15 @@ import CardProduct from '../CardProducts/CardProduct'
 import { ButtonContainerStyled, ButtonSX, IconFilterContainer, LeftContainerStyled,ProductsContainerStyled, RightContainerSyled, TiendaContainerStyled, TitleContainerStyled, TitleTiendaStyled } from './TiendaStyles'
 import { BiSolidFilterAlt } from "react-icons/bi";
 import Categoria from './Categoria';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@mui/material';
+import { motion } from 'framer-motion';
+import { toggleVisibility } from '../../redux/filter/filterSlice';
+
 
 const Tienda = () => {
 
   const categories = useSelector(state => state.categories.categories);
-
 
   const INITIAL_LIMIT = 9;
   const [limit, setLimit] = useState(INITIAL_LIMIT);
@@ -25,15 +27,16 @@ const Tienda = () => {
     products = { [selectedCategory]: products[selectedCategory] };
   }
 
-  
-
   useEffect(() => setLimit(INITIAL_LIMIT), [selectedCategory]);
+
+  const dispatch = useDispatch();
+  const isVisible = useSelector(state => state.filter.isVisible);
 
   return (
     <>
       <TiendaContainerStyled>
         
-        <LeftContainerStyled>
+        <LeftContainerStyled $isVisible={isVisible}>
           <h3>Categorias</h3>
           
 
@@ -45,9 +48,11 @@ const Tienda = () => {
       
         <RightContainerSyled>
           <TitleContainerStyled>
-            <IconFilterContainer>
+            <motion.div whileTap={{scale: 0.8}}>
+            <IconFilterContainer onClick={() => dispatch(toggleVisibility())}>
               <BiSolidFilterAlt size={"38px"}/>
             </IconFilterContainer>
+            </motion.div>
             <TitleTiendaStyled> TIENDA </TitleTiendaStyled>
           </TitleContainerStyled>
           <ProductsContainerStyled>

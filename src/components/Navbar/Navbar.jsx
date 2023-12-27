@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { ListContainerStyled, NavbarButtonStyled, NavbarContainerStyled, IconButtonStyled, NavbarStyled, ButtonsContainer, ImgLogoNav} from './NavbarStyles';
 import { motion } from 'framer-motion';
 import { BiSolidCart } from "react-icons/bi";
 import { ImMenu } from 'react-icons/im';
-import { MenuContext } from '../Context/MenuContext';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toggleHiddenCart } from '../../redux/cart/cartSlice';
 import Cart from '../cart/Cart';
+import { toggleMenu } from '../../redux/menu/menuSlice';
 
 
 const Navbar = () => {
@@ -18,10 +18,8 @@ const Navbar = () => {
     dispatch(toggleHiddenCart());
   };
 
-
   //MenuToggle
-  const {isOpen, setIsOpen} = useContext(MenuContext);
-  const MenuToggle = () => { setIsOpen(!isOpen) };
+  const isOpen = useSelector(state => state.menu.isOpen);
 
   return (
     <>
@@ -64,7 +62,7 @@ const Navbar = () => {
         <ButtonsContainer>
 
           <IconButtonStyled >
-            <motion.div whileTap={{scale: 0.8}} onClick={MenuToggle} >
+            <motion.div whileTap={{scale: 0.8}} onClick={() => dispatch(toggleMenu())} >
               <ImMenu size={"25px"} />
             </motion.div>
           </IconButtonStyled>

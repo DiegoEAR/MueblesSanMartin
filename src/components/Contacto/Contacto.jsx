@@ -1,37 +1,75 @@
 import React from 'react';
-import { FormInputContainer, FormStyled, ButtonFormStyled } from './ContactoStyles';
+import { FormStyled } from './ContactoStyles';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import Input from './Input/Input';
+import Textarea from './Textarea/Textarea';
+import SubmitButton from './SubmitButton/SubmitButton';
+
+const phoneRegex = /\d{10}$/;
+
+const validationSchema = Yup.object({
+  name: Yup.string().trim().required('Campo requerido.'),
+  phone: Yup.string().matches(phoneRegex, 'Numero de telefono inválido.'),
+  email: Yup.string().email('El email es inválido.').required('Campo requerido.'),
+  asunto: Yup.string().max(255, 'Maximo de caracteres alcanzados').notRequired(),
+});
 
 const Contacto = () => {
+  const { getFieldProps, handleSubmit, errors, touched } = useFormik({
+    initialValues: {
+      name: '',
+      phone: '',
+      email: '',
+      asunto: '',
+    },
+    validationSchema,
+    onSubmit: (values, { resetForm }) => {
+      console.log('ValoresForm:', values);
+      resetForm();
+    }
+  });
+
   return (
     <>
       <FormStyled>
-
         <h2>Envianos tu consulta!</h2>
 
-        <FormInputContainer>
-          <label htmlFor="nombre">Nombre: </label>
-          <input type="text" id="nombre" placeholder='  Juan Martinez'/>
-        </FormInputContainer>
+        <Input
+          name='name'
+          label='Nombre'
+          type="text"
+          isError={touched.name && errors.name}
+          {...getFieldProps('name')}
+        />
 
-        <FormInputContainer>
-          <label htmlFor="telefono">Telefono: </label>
-          <input type="text" id="telefono" placeholder='  1122334455'/>
-        </FormInputContainer>
+        <Input
+          name='phone'
+          label='Telefono'
+          type="tel"
+          isError={touched.phone && errors.phone}
+          {...getFieldProps('phone')}
+        />
 
-        <FormInputContainer>
-          <label htmlFor="email">Email: </label>
-          <input type="mail" id="email" placeholder='  email@example.com'/>
-        </FormInputContainer>
+        <Input
+          name='email'
+          label='Email'
+          type="mail"
+          isError={touched.email && errors.email}
+          {...getFieldProps('email')}
+        />
 
-        <FormInputContainer>
-          <label htmlFor="asunto">Asunto: </label>
-          <textarea name="" id="asunto"></textarea>
-        </FormInputContainer>
+        <Textarea
+          name="asunto"
+          label='Asunto'
+          isError={touched.asunto && errors.asunto}
+          {...getFieldProps('asunto')}
+        ></Textarea>
 
-        <ButtonFormStyled>Enviar</ButtonFormStyled>
+        <SubmitButton onSubmit={handleSubmit}/>
       </FormStyled>
     </>
-  )
-}
+  );
+};
 
-export default Contacto
+export default Contacto;

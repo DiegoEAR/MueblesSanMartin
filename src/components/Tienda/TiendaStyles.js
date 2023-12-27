@@ -35,7 +35,20 @@ export const LeftContainerStyled = styled.div`
 	}
 
 	@media (max-width: 650px) {
-    display: none;
+		display: ${({ $isVisible }) => ($isVisible ? 'flex' : 'none')};
+		position: absolute;
+		width: 50vw;
+		height:70vh;
+		margin-top: 100px;
+		background-color: var(--background);
+		border-top: 1px solid var(--secondary);
+		border-bottom: 1px solid var(--secondary);
+		align-items: center;
+
+		h3{
+		margin: 0;
+		padding: 0;
+	}
 	}
 `
 
@@ -48,6 +61,11 @@ export const ListCategoriesStyled = styled.div`
 	width: 90%;
 	background-color: ${({ selected }) =>
     selected ? 'var(--sdt)' : 'var(--background)'};
+
+	@media (max-width: 650px) {
+		width: 80%;
+		align-items: center;
+	}
 `
 
 export const CategoryStyled = styled.a`

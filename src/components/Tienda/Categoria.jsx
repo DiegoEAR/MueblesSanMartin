@@ -12,14 +12,16 @@ export const Categoria = ({title, category}) => {
   const dispatch = useDispatch();
 
   return (
+  <>
     <ListCategoriesStyled
-      selected={category === selectedCategory}
-      onClick={() => dispatch(selectCategory(category))}
+    selected={category === selectedCategory}
+    onClick={() => dispatch(selectCategory(category))}
     >
 
-      <CategoryStyled>{title}</CategoryStyled>
+    <CategoryStyled>{title}</CategoryStyled>
 
     </ListCategoriesStyled>
+  </>
   )
 }
 

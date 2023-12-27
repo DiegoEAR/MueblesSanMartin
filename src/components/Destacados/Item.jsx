@@ -1,7 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import { CarouselContainerStyled, TitleContainerStyled, ImgCarrouselStyled, TextContainerStyled, ButtonStyled, PriceContainerStyled} from './DestacadosStyles'
 import { motion } from 'framer-motion'
 
 function Item({item}){
+
+  const navigate = useNavigate();
+
+  const redirectTienda = () => {
+    navigate('/tienda');
+  }
 
   return (
 
@@ -17,7 +24,10 @@ function Item({item}){
         </TitleContainerStyled>
         <PriceContainerStyled>
           <span>Precio: $ {item.price}</span>
-          <motion.div whileTap={{scale: 0.95}}>
+          <motion.div 
+          whileTap={{scale: 0.95}}
+          onClick={redirectTienda}
+          >
             <ButtonStyled>MAS INFO!</ButtonStyled>
           </motion.div>
         </PriceContainerStyled>        
